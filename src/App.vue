@@ -3,7 +3,10 @@
 <!--  <router-link to="/">Go Home</router-link><br/>-->
 <!--  <router-link to="/about">Go About</router-link>-->
 <!--  &lt;!&ndash; 路由匹配到的组件将渲染在这里 &ndash;&gt;-->
-  <router-view/>
+  <el-config-provider :locale="locale">
+    <router-view/>
+  </el-config-provider>
+
 </template>
 
 <style>
@@ -16,3 +19,23 @@
   margin-top: 60px;
 }
 </style>
+<script setup lang="ts">
+import { computed } from "vue";
+
+import ElementZhCn from "element-plus/dist/locale/zh-cn.mjs";
+import ElementEn from "element-plus/dist/locale/en.mjs";
+import { settingsStore } from "@/store";
+const settingsState = settingsStore();
+const language = computed(() => settingsState.config.language);
+
+const locale = computed(() => {
+  switch (language.value) {
+    case "zh-cn":
+      return ElementZhCn;
+    case "en":
+      return ElementEn;
+    default:
+      return ElementZhCn;
+  }
+});
+</script>

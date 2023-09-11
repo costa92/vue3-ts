@@ -3,6 +3,7 @@ import home from '@/views/home/home.vue'
 import about from '@/views/about/about.vue'
 import NProgress from "nprogress";
 import {route} from "@/hooks";
+import {i18nRouter} from "@/utils";
 // 定义路由
 export const constantRouters: Array<RouteRecordRaw > = [
     {
@@ -12,7 +13,8 @@ export const constantRouters: Array<RouteRecordRaw > = [
     },
     {
         path: '/about',
-        component: about
+        component: about,
+        meta: { title: "about", icon: "about", isAffix: true, isTagView: true },
     }
 ];
 // 创建路由实例并传递 `routes` 配置
@@ -21,34 +23,7 @@ const  router = createRouter({
     routes: constantRouters,
 });
 
-router.beforeEach(async (to, from, next) => {
-    const store = routerStore();
-    const { routerList, getRouterList } = store;
-    const token = Session.get("token");
-    NProgress.start();
 
-    if (to.path === "/login") {
-        NProgress.done();
-        return next();
-    }
-
-    if (!token) {
-        const params = JSON.stringify(to.query ? to.query : to.params);
-        const url = `/login?redirect=${to.path}&params=${params}`;
-        return next(url);
-    }
-
-    if (routerList.length > 0) return next();
-
-    try {
-        const newRouter = await getRouterList();
-        newRouter.forEach((item) => router.addRoute(item));
-        next({ ...to, replace: true });
-    } catch (err) {
-        console.log(err, "动态添加路由失败");
-        NProgress.done();
-    }
-});
 
 // 路由加载后
 router.afterEach((to, from, failure) => {
