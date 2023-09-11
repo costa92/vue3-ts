@@ -30,3 +30,4 @@ eslintrc 中 enabled 设置为 true，保存之后会随即在跟目录下生成
 1. [设置主题](https://juejin.cn/post/7224145268739620923)
 2. [unplugin-auto-import 和 unplugin-vue-components 的正确使用方式](https://blog.csdn.net/goodcto/article/details/130022782)
 3. [vue3-element-admin](https://github.com/jack-pearson/vue3-element-admin)
+4. [用 vite + vue3 + ts + pinia + element-plus + vueuse 创建一个前端项目模板](https://juejin.cn/post/7189867775962120247)

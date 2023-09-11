@@ -36,6 +36,7 @@ export default defineConfig({
       utils: path.resolve(__dirname, "src/utils"),
       i18n: path.resolve(__dirname, "src/i18n"),
       types: path.resolve(__dirname, "src/types"),
+      layout: path.resolve(__dirname, "src/layout"),
     },
   },
   // 设置服务端口
