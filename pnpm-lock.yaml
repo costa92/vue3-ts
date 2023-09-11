@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@element-plus/icons-vue': ^2.1.0
+  '@types/node': ^20.6.0
   '@types/nprogress': ^0.2.0
   '@typescript-eslint/eslint-plugin': ^6.6.0
   '@typescript-eslint/parser': ^6.6.0
@@ -29,6 +31,7 @@ specifiers:
   vue-tsc: ^1.8.5
 
 dependencies:
+  '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/2.1.0_vue@3.3.4
   color: registry.npmmirror.com/color/4.2.3
   element-plus: registry.npmmirror.com/element-plus/2.3.12_vue@3.3.4
   less: registry.npmmirror.com/less/4.2.0
@@ -41,6 +44,7 @@ dependencies:
   vue-router: registry.npmmirror.com/vue-router/4.2.4_vue@3.3.4
 
 devDependencies:
+  '@types/node': registry.npmmirror.com/@types/node/20.6.0
   '@types/nprogress': registry.npmmirror.com/@types/nprogress/0.2.0
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/6.6.0_wbphrqh76dlzieybwrz35pc2du
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/6.6.0_rngtr6f3b25lvetpihwplgecf4
@@ -55,7 +59,7 @@ devDependencies:
   typescript: registry.npmmirror.com/typescript/5.2.2
   unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.16.6
   unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.25.2_vue@3.3.4
-  vite: registry.npmmirror.com/vite/4.4.9_less@4.2.0+sass@1.66.1
+  vite: registry.npmmirror.com/vite/4.4.9_xqjaig5syqddutwxmbaqvefdiu
   vue-tsc: registry.npmmirror.com/vue-tsc/1.8.10_typescript@5.2.2
 
 packages:
@@ -587,6 +591,12 @@ packages:
     version: 4.14.198
     dev: false
 
+  registry.npmmirror.com/@types/node/20.6.0:
+    resolution: {integrity: sha512-najjVq5KN2vsH2U/xyh2opaSEz6cZMR2SetLIlxlj08nOcmPOemJmUK2o4kUzfLqfrWE0PIrNeE16XhYDd3nqg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-20.6.0.tgz}
+    name: '@types/node'
+    version: 20.6.0
+    dev: true
+
   registry.npmmirror.com/@types/nprogress/0.2.0:
     resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/nprogress/-/nprogress-0.2.0.tgz}
     name: '@types/nprogress'
@@ -767,7 +777,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: registry.npmmirror.com/vite/4.4.9_less@4.2.0+sass@1.66.1
+      vite: registry.npmmirror.com/vite/4.4.9_xqjaig5syqddutwxmbaqvefdiu
       vue: registry.npmmirror.com/vue/3.3.4
     dev: true
 
@@ -2748,7 +2758,7 @@ packages:
     version: 1.0.2
     dev: true
 
-  registry.npmmirror.com/vite/4.4.9_less@4.2.0+sass@1.66.1:
+  registry.npmmirror.com/vite/4.4.9_xqjaig5syqddutwxmbaqvefdiu:
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.4.9.tgz}
     id: registry.npmmirror.com/vite/4.4.9
     name: vite
@@ -2779,6 +2789,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': registry.npmmirror.com/@types/node/20.6.0
       esbuild: registry.npmmirror.com/esbuild/0.18.20
       less: registry.npmmirror.com/less/4.2.0
       postcss: registry.npmmirror.com/postcss/8.4.29
