@@ -1,24 +1,18 @@
 <template>
-<!--  &lt;!&ndash;使用 router-link 组件进行导航。通过传递 `to` 来指定链接 &ndash;&gt;-->
-<!--  <router-link to="/">Go Home</router-link><br/>-->
-<!--  <router-link to="/about">Go About</router-link>-->
-<!--  &lt;!&ndash; 路由匹配到的组件将渲染在这里 &ndash;&gt;-->
   <el-config-provider :locale="locale">
-    <router-view/>
+    <div class="app_container">
+      <el-container>
+        <el-header class="header">
+          <router-view />
+        </el-header>
+        <el-main class="main">
+          Main
+        </el-main>
+        <el-footer class="footer">Footer</el-footer>
+      </el-container>
+    </div>
   </el-config-provider>
-
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
 <script setup lang="ts">
 import { computed } from "vue";
 
@@ -39,3 +33,49 @@ const locale = computed(() => {
   }
 });
 </script>
+
+<style lang="less">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  color: #2c3e50;
+// width: 1200px;
+  padding-top: 0;
+}
+
+.el-header, .el-footer {
+  background-color: #B3C0D1;
+  color: #333;
+  text-align: center;
+  line-height: 10px;
+}
+
+.el-aside {
+  background-color: #D3DCE6;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+}
+
+.el-main {
+  background-color: #E9EEF3;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
+}
+
+body > .el-container {
+  margin-bottom: 0px;
+}
+
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
+</style>
