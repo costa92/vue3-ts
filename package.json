@@ -12,20 +12,21 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "color": "^4.2.3",
     "element-plus": "^2.3.12",
     "less": "^4.2.0",
     "less-loader": "^11.1.3",
+    "nprogress": "^0.2.0",
     "pinia": "^2.1.6",
     "pinia-plugin-persist": "^1.0.0",
     "vue": "^3.3.4",
-    "nprogress": "^0.2.0",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "@vitejs/plugin-vue": "^4.2.3",
-    "@types/nprogress": "^0.2.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

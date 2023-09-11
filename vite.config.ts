@@ -40,7 +40,7 @@ export default defineConfig({
   // 设置服务端口
   server: {
     host: '0.0.0.0',
-    port: 8080,
+    port: 3010,
     open: true
   },
   css: {
