@@ -17,15 +17,30 @@ export const constantRouters: Array<RouteRecordRaw > = [
         meta: { title: "about", icon: "about", isAffix: true, isTagView: true },
     }
 ];
+
+// 文档： https://router.vuejs.org/zh/guide/advanced/navigation-guards.html
 // 创建路由实例并传递 `routes` 配置
 const  router = createRouter({
     history: createWebHashHistory(),
     routes: constantRouters,
 });
 
+/* 全局前置守卫 */
+router.beforeEach((to, from, next) => {
+    /* 全局性的操作：
+     * 权限控制
+     * 进度条（开始）
+     * ...
+     */
+    next();
+});
 
+/* 全局解析守卫 */
+router.beforeResolve((to, from, next) => {
+    next();
+});
 
-// 路由加载后
+/* 全局后置钩子 */
 router.afterEach((to, from, failure) => {
     route.value = to;
     console.log("afterEach", to, from, failure)
