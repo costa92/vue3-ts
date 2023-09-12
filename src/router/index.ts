@@ -28,6 +28,7 @@ const  router = createRouter({
 // 路由加载后
 router.afterEach((to, from, failure) => {
     route.value = to;
+    console.log("afterEach", to, from, failure)
     if (isNavigationFailure(failure)) {
         NProgress.done();
         console.log("error navigation", failure);

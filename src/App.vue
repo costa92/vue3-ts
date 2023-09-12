@@ -3,10 +3,10 @@
     <div class="app_container">
       <el-container>
         <el-header class="header">
-          <router-view />
+          <Navbar />
         </el-header>
         <el-main class="main">
-          Main
+          <router-view/>
         </el-main>
         <el-footer class="footer">Footer</el-footer>
       </el-container>
@@ -18,9 +18,19 @@ import { computed } from "vue";
 
 import ElementZhCn from "element-plus/dist/locale/zh-cn.mjs";
 import ElementEn from "element-plus/dist/locale/en.mjs";
+import Navbar from "@/components/Navbar/index.vue";
 import { settingsStore } from "@/store";
+import {useRouter} from "vue-router";
+
 const settingsState = settingsStore();
 const language = computed(() => settingsState.config.language);
+const router = useRouter()
+
+// 监听路由变化
+watch(() => router, (newValue) => {
+  console.log(newValue)
+});
+
 
 const locale = computed(() => {
   switch (language.value) {
@@ -32,16 +42,22 @@ const locale = computed(() => {
       return ElementZhCn;
   }
 });
+
 </script>
 
 <style lang="less">
+// 去掉边距
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
-// width: 1200px;
   padding-top: 0;
 }
 
@@ -49,7 +65,8 @@ const locale = computed(() => {
   background-color: #B3C0D1;
   color: #333;
   text-align: center;
-  line-height: 10px;
+  line-height: 70px;
+  height: 72px;
 }
 
 .el-aside {
@@ -63,11 +80,11 @@ const locale = computed(() => {
   background-color: #E9EEF3;
   color: #333;
   text-align: center;
-  line-height: 160px;
+  line-height: 180px;
 }
 
 body > .el-container {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .el-container:nth-child(5) .el-aside,
