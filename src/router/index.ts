@@ -4,6 +4,7 @@ import about from '@/views/about/about.vue'
 import NProgress from "nprogress";
 import {route} from "@/hooks";
 import {i18nRouter} from "@/utils";
+import { settingsStore } from "@/store";
 // 定义路由
 export const constantRouters: Array<RouteRecordRaw > = [
     {
@@ -37,13 +38,17 @@ router.beforeEach((to, from, next) => {
 
 /* 全局解析守卫 */
 router.beforeResolve((to, from, next) => {
+    console.log("beforeResolve")
     next();
 });
 
 /* 全局后置钩子 */
 router.afterEach((to, from, failure) => {
+    const settingsState = settingsStore();
+    settingsState.config.active = to.fullPath
+    settingsState.setConfig(settingsState.config)
     route.value = to;
-    console.log("afterEach", to, from, failure)
+    // router.currentRoute.value.path = to.fullPath
     if (isNavigationFailure(failure)) {
         NProgress.done();
         console.log("error navigation", failure);

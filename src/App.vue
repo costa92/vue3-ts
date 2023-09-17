@@ -3,9 +3,10 @@
     <div class="app_container">
       <el-container>
         <el-header class="header">
-          <Navbar />
+          <Navbar :active-index="{ activeIndex }"/>
         </el-header>
         <el-main class="main">
+          {{ activeIndex }}
           <router-view/>
         </el-main>
         <el-footer class="footer">Footer</el-footer>
@@ -21,10 +22,10 @@ import ElementEn from "element-plus/dist/locale/en.mjs";
 import Navbar from "@/components/Navbar/index.vue";
 import { settingsStore } from "@/store";
 import {useRouter} from "vue-router";
-
+const router = useRouter()
 const settingsState = settingsStore();
 const language = computed(() => settingsState.config.language);
-const router = useRouter()
+const activeIndex =  computed( () => settingsState.config.active);
 
 // 监听路由变化
 watch(() => router, (newValue) => {
@@ -45,13 +46,14 @@ const locale = computed(() => {
 
 </script>
 
-<style lang="less">
+<style lang="scss">
 // 去掉边距
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -61,19 +63,38 @@ const locale = computed(() => {
   padding-top: 0;
 }
 
+.app_container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body > .el-container {
+  height:100%;
+  margin-bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
 .el-header, .el-footer {
   background-color: #B3C0D1;
   color: #333;
   text-align: center;
   line-height: 70px;
-  height: 72px;
 }
 
-.el-aside {
-  background-color: #D3DCE6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
+.el-header {
+  padding: 0;
+}
+
+.footer {
+  width: 100%;
+  align-items: center;
 }
 
 .el-main {
@@ -81,18 +102,22 @@ const locale = computed(() => {
   color: #333;
   text-align: center;
   line-height: 180px;
+  height: 100%;
 }
 
-body > .el-container {
-  margin-bottom: 0;
-}
 
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+.router-view {
+  color: var(--el-text-color-primary);
+  background-color: var(--el-background-color-base);
+  transition: background 1s, color 0.6s;
+  width: 100%;
+  height: max-content;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
+  animation-timing-function: linear;
 }
 </style>

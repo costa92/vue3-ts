@@ -25,5 +25,6 @@ export interface settingsStoreType {
         hasClipboard: boolean;
         ElComponentSize: ElComponentSizeType;
         isCollapsed: boolean;
+        active: string;
     };
 }

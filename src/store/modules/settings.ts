@@ -27,6 +27,7 @@ export const createSettings = (): settingsStoreType => {
             hasLanguage: true,
             isCollapsed: false,
             language: "zh-cn",
+            active: "/"
         },
     };
 };
