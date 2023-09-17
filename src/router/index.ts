@@ -44,11 +44,12 @@ router.beforeResolve((to, from, next) => {
 
 /* 全局后置钩子 */
 router.afterEach((to, from, failure) => {
+    // save current Route to Store
     const settingsState = settingsStore();
     settingsState.config.active = to.fullPath
     settingsState.setConfig(settingsState.config)
+
     route.value = to;
-    // router.currentRoute.value.path = to.fullPath
     if (isNavigationFailure(failure)) {
         NProgress.done();
         console.log("error navigation", failure);

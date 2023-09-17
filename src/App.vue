@@ -3,7 +3,7 @@
     <div class="app_container">
       <el-container>
         <el-header class="header">
-          <Navbar :active-index="{ activeIndex }"/>
+          <Navbar :active-index="activeIndex"/>
         </el-header>
         <el-main class="main">
           {{ activeIndex }}
@@ -26,7 +26,6 @@ const router = useRouter()
 const settingsState = settingsStore();
 const language = computed(() => settingsState.config.language);
 const activeIndex =  computed( () => settingsState.config.active);
-
 // 监听路由变化
 watch(() => router, (newValue) => {
   console.log(newValue)

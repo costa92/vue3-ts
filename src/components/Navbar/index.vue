@@ -20,12 +20,11 @@ const router = useRouter();
 
 const props = defineProps({
     activeIndex: {
-      // eslint-disable-next-line no-undef
       type: String,
       required: true,
     }
 });
-const activeIndex = ref(props.activeIndex.activeIndex);
+const activeIndex = ref(props.activeIndex);
 const handleSelect = (index: string) => {
   console.log(index)
   activeIndex.value = index;
