@@ -30,21 +30,41 @@ const homeBannerNewsList: BannerList= [
 
 <template>
   <section class="home">
-    <el-row :gutter="20" >
+    <el-row :gutter="20">
 <!--  左边  start  -->
       <el-col :span="14" :offset="2" class="left">
         <el-row :gutter="20" >
           <el-col>
-            <div class="grid-content bg-purple radius-two">
+            <div class="grid-content radius-10">
 <!--   banner start -->
-              <div class="block indexBanner"  :height="bannerHeight + 'px'">
-                  <el-carousel :height="bannerHeight + 'px'" :interval="2000" id="el-carousel">
+              <div class="block indexBanner radius-10"  :height="bannerHeight + 'px'">
+                  <el-carousel class="radius-10" :height="bannerHeight + 'px'" :interval="2000" id="el-carousel">
                     <el-carousel-item v-for="(item,index) in homeBannerNewsList" :key="index">
-                      <img ref="bannerHeight"  class="indexBannerImg " :src="item.content">
+                      <img ref="bannerHeight"  class="indexBannerImg" :src="item.content">
                     </el-carousel-item>
                   </el-carousel>
               </div>
  <!--    banner end -->
+              <article class="article">
+                <el-card class="box-card">
+                  <template #header>
+                    <div class="card-header">
+                      <span class="card-title">🆕 最新文章</span>
+                    </div>
+                  </template>
+<!--                  <ul>-->
+<!--                    <li v-for="item in article.list" :key="item.id">-->
+<!--                      <ArticleItem :article="item"></ArticleItem>-->
+<!--                    </li>-->
+<!--                  </ul>-->
+<!--                  <p class="isLoading" v-if="loading" v-loading="loading"-->
+<!--                     element-loading-text="玩命加载中"-->
+<!--                     element-loading-background="#ffffff"></p>-->
+<!--                  <p v-if="!noMore && article.count">-->
+<!--                    <el-divider>我是有底线的</el-divider>-->
+<!--                  </p>-->
+                </el-card>
+              </article>
             </div>
           </el-col>
         </el-row>
@@ -72,7 +92,7 @@ const homeBannerNewsList: BannerList= [
 }
 
 .el-col {
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .grid-content {
@@ -85,11 +105,11 @@ const homeBannerNewsList: BannerList= [
 }
 
 .left .right{
-  border-radius: 2px
+  border-radius: 10px
 }
 
-.radius-two{
-  border-radius: 2px
+.radius-10{
+  border-radius: 10px
 }
 
 .indexBannerImg {
@@ -101,9 +121,9 @@ const homeBannerNewsList: BannerList= [
   color: #475669;
   font-size: 14px;
   opacity: 0.80;
-  line-height: 300px;
+  line-height: 400px;
   margin: 0;
-  border-radius: 2px
+  border-radius: 10px
 }
 
 .el-carousel__item:nth-child(2n) {
@@ -118,7 +138,7 @@ const homeBannerNewsList: BannerList= [
   //left: unset;
   //transform: unset;
   //right: 2%;
-  top: 70%;
+  top: 75%;
   margin-bottom: 10px;
   position: absolute;
 }
@@ -134,9 +154,26 @@ const homeBannerNewsList: BannerList= [
   background: #3f8ec8;
 }
 .el-carousel el-carousel--horizontal {
-  border-radius: 2px
+  border-radius: 10px
 }
 .el-carousel__container {
-  border-radius: 2px
+  border-radius: 10px
+}
+
+.article {
+  margin-top: 20px;
+  background-color: #9900ff;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+    }
+  }
+}
+
+.isLoading {
+  padding: 30px;
+  font-size: 30px;
 }
 </style>
