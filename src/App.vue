@@ -6,7 +6,6 @@
           <Navbar :active-index="activeIndex"/>
         </el-header>
         <el-main class="main">
-          {{ activeIndex }}
           <router-view/>
         </el-main>
         <el-footer class="footer">Footer</el-footer>
@@ -30,8 +29,6 @@ const activeIndex =  computed( () => settingsState.config.active);
 watch(() => router, (newValue) => {
   console.log(newValue)
 });
-
-
 const locale = computed(() => {
   switch (language.value) {
     case "zh-cn":
@@ -84,7 +81,7 @@ body > .el-container {
   background-color: #B3C0D1;
   color: #333;
   text-align: center;
-  line-height: 70px;
+  line-height: 60px;
 }
 
 .el-header {
@@ -100,8 +97,7 @@ body > .el-container {
   background-color: #E9EEF3;
   color: #333;
   text-align: center;
-  line-height: 180px;
-  height: 100%;
+  line-height: 160px;
 }
 
 
