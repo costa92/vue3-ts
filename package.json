@@ -9,7 +9,9 @@
     "preview": "vite preview --port 8080 --mode prod",
     "lint": "eslint --ext .js --ext .ts --ext .vue src",
     "lint-fix": "eslint --ext .js --ext .ts --ext .vue src --fix",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "commit:comment": "引导设置规范化的提交信息",
+    "commit":"git-cz"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
