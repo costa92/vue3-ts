@@ -26,12 +26,18 @@
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@types/color": "^3.0.4",
     "@types/node": "^20.6.0",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "commitizen": "^4.3.0",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

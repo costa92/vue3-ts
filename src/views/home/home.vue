@@ -177,3 +177,4 @@ const homeBannerNewsList: BannerList= [
   font-size: 30px;
 }
 </style>
+customizable
