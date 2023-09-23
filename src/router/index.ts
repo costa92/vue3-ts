@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory,RouteRecordRaw,isNavigationFailure } from 'vue-router'
 import home from '@/views/home/home.vue'
 import about from '@/views/about/about.vue'
+import article from '@/views/article/article.vue'
 import NProgress from "nprogress";
 import {route} from "@/hooks";
 import {i18nRouter} from "@/utils";
@@ -16,6 +17,11 @@ export const constantRouters: Array<RouteRecordRaw > = [
         path: '/about',
         component: about,
         meta: { title: "about", icon: "about", isAffix: true, isTagView: true },
+    },
+    {
+        path: '/article',
+        component: article,
+        meta:  { title: "about", icon: "about", isAffix: true, isTagView: true },
     }
 ];
 
