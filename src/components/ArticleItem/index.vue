@@ -36,13 +36,17 @@
 .article-item {
   display: flex;
   padding: 10px;
+  margin-bottom: 10px;
   border-radius: 10px;
   .item-cover {
     width: 270px;
-    padding: 2px;
+    padding: 3px;
     display: inline-block;
     border: 1px solid var(--el-bg-color);
-    border-radius: 8px;
+    height: 180px;
+    .el-image {
+      border-radius: 10px;
+    }
   }
   .describe {
     margin-left: 15px;
@@ -57,7 +61,6 @@
       margin: 15px 0;
       color: var(--el-text-color-secondary);
       line-height: 28px;
-      height: 108px;
       overflow: hidden;
       -webkit-line-clamp: 4;
       display: -webkit-box;
