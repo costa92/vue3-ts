@@ -1,18 +1,36 @@
 <template>
-  <el-menu
-    :default-active="activeIndex"
-    class="el-menu-demo"
-    mode="horizontal"
-    @select="handleSelect"
-  >
-    <el-menu-item
-      v-for="item in list"
-      :key="item.url"
-      :index="item.url"
+  <el-row :gutter="20">
+    <!--    header left -->
+    <el-col
+      class="header-left"
+      :span="4"
+    />
+    <!--    header middle -->
+    <el-col
+      class="header-middle"
+      :span="16"
     >
-      {{ item.name }}
-    </el-menu-item>
-  </el-menu>
+      <el-menu
+        :default-active="activeIndex"
+        class="el-menu-nav"
+        mode="horizontal"
+        @select="handleSelect"
+      >
+        <el-menu-item
+          v-for="item in list"
+          :key="item.url"
+          :index="item.url"
+        >
+          {{ item.name }}
+        </el-menu-item>
+      </el-menu>
+    </el-col>
+    <!--   header right -->
+    <el-col
+      class="header-right"
+      :span="4"
+    />
+  </el-row>
 </template>
 <script setup lang="ts">
 import { useRouter } from "vue-router";
@@ -52,6 +70,18 @@ const list = [
 ];
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
+.el-menu {
+  border-bottom: 0;
+}
+.el-menu-nav {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding-left: 0;
+}
 
+.header-middle {
+  border-bottom: 0;
+}
 </style>

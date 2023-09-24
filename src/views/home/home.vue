@@ -4,7 +4,7 @@
       <!--  左边  start  -->
       <el-col
         :span="14"
-        :offset="2"
+        :offset="4"
         class="left"
       >
         <el-row :gutter="20">
@@ -46,6 +46,7 @@
                       v-for="item in articles"
                       :key="item.id"
                     >
+                    <!-- 文章列表 -->
                       <ArticleItem :article="item" />
                     </li>
                   </ul>
@@ -64,7 +65,7 @@
       <!--  左边  end  -->
       <!--  右边  start-->
       <el-col
-        :span="6"
+        :span="4"
         class="right"
       >
         <div class="grid-content bg-purple">
@@ -200,6 +201,7 @@ defineExpose({
 .article {
   margin-top: 20px;
   background-color: #9900ff;
+  border-radius: 10px;
   ul {
     list-style-type: none;
     padding: 0;
@@ -208,10 +210,32 @@ defineExpose({
     }
   }
 }
+.article  .card-header {
+  flex: 1 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  line-height: 20px;
+}
+.article  .el-card {
+  border-radius: var(--el-card-border-radius);
+  border: 1px solid var(--el-card-border-color);
+  background-color: var(--el-card-bg-color);
+  overflow: hidden;
+  color: var(--el-text-color-primary);
+  transition: var(--el-transition-duration);
+}
+.article  .card-title {
+  color: var(--el-color-primary);
+  font-size: 23px;
+}
 
 .isLoading {
   padding: 30px;
   font-size: 30px;
 }
+
+
 </style>
 customizable

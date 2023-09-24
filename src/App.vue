@@ -8,7 +8,7 @@
         <el-main class="main">
           <router-view />
         </el-main>
-        <el-footer class="footer">
+        <el-footer class="footer bg-purple">
           Footer
         </el-footer>
       </el-container>
@@ -51,36 +51,36 @@ const locale = computed(() => {
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 #app {
+  display: block;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
   padding-top: 0;
-}
-
-.app_container {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  overflow-x: hidden;
 }
 
 body > .el-container {
   height:100%;
-  margin-bottom: 0;
+  margin: 0;
   width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+
 }
 
 .el-header, .el-footer {
-  background-color: #B3C0D1;
   color: #333;
   text-align: center;
   line-height: 60px;
@@ -89,14 +89,19 @@ body > .el-container {
 .el-header {
   padding: 0;
 }
-
+.header{
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  border-bottom: 1px solid var(--el-border-color);
+}
 .footer {
   width: 100%;
   align-items: center;
 }
 
 .el-main {
-  background-color: #E9EEF3;
   color: #333;
   text-align: center;
   line-height: 160px;
