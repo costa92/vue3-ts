@@ -1,19 +1,24 @@
 <template>
   <el-container class="container">
     <!-- layout布局左侧菜单区 -->
-    <el-aside width="200px" class="aside">
+    <el-aside
+      width="200px"
+      class="aside"
+    >
       <!-- 菜单项，通过组件的形式引入 -->
-      <Menu></Menu>
+      <Menu />
     </el-aside>
     <!-- layout布局内容区 -->
     <el-container>
       <!-- 内容区头部 -->
       <el-header class="header">
         <!-- 头部组件，抽离成组件形式 -->
-        <Header></Header>
+        <Header />
       </el-header>
       <!-- 内容区的主体，用于数据展示 -->
-      <el-main class="content">Main</el-main>
+      <el-main class="content">
+        Main
+      </el-main>
     </el-container>
   </el-container>
 </template>

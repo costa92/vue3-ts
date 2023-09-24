@@ -20,7 +20,7 @@ export default defineConfig({
       // 新增如下
       dts: "src/auto-import.d.ts",
       eslintrc: {
-        enabled: true
+        enabled: true,
       },
     }),
     Components({

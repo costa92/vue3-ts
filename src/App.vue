@@ -3,12 +3,14 @@
     <div class="app_container">
       <el-container>
         <el-header class="header">
-          <Navbar :active-index="activeIndex"/>
+          <Navbar :active-index="activeIndex" />
         </el-header>
         <el-main class="main">
-          <router-view/>
+          <router-view />
         </el-main>
-        <el-footer class="footer">Footer</el-footer>
+        <el-footer class="footer">
+          Footer
+        </el-footer>
       </el-container>
     </div>
   </el-config-provider>

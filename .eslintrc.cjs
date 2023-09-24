@@ -4,7 +4,8 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
+        // "eslint:recommended",
+        "plugin:vue/vue3-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:vue/vue3-essential",
         './.eslintrc-auto-import.json'
@@ -15,11 +16,15 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}"
+                ".eslintrc.{js,cjs}",
+                'src/views/**/*.vue'
             ],
             "parserOptions": {
                 "sourceType": "script"
-            }
+            },
+            "rules": {
+                'vue/multi-word-component-names': 0,
+            },
         }
     ],
     "parserOptions": {
@@ -32,6 +37,7 @@ module.exports = {
         "vue"
     ],
     "rules": {
-        "@typescript-eslint/no-explicit-any": ["off"]
+        "@typescript-eslint/no-explicit-any": ["off"],
+        'vue/multi-word-component-names': 'off',
     }
 }

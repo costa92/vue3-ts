@@ -11,7 +11,8 @@
     "lint-fix": "eslint --ext .js --ext .ts --ext .vue src --fix",
     "prettier": "prettier --write .",
     "commit:comment": "引导设置规范化的提交信息",
-    "commit":"git-cz"
+    "commit":"git-cz",
+    "lint:eslint": "eslint \"src/**/*.{vue,ts,tsx}\" --fix"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",

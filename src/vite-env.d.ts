@@ -7,3 +7,6 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
+
+// 加上这个
+declare module '*.mjs'
