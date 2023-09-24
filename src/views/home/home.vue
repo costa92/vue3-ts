@@ -46,7 +46,7 @@
                       v-for="item in articles"
                       :key="item.id"
                     >
-                    <!-- 文章列表 -->
+                      <!-- 文章列表 -->
                       <ArticleItem :article="item" />
                     </li>
                   </ul>
@@ -108,6 +108,8 @@ const homeBannerNewsList: BannerList= [
 interface article {
   id: number,
   title: string,
+  cover: string,
+  abstract: string,
 }
 interface ArticleList {
   [index:number]:article
@@ -117,10 +119,14 @@ const articles: ArticleList = [
     {
       id: 1,
       title: "test",
+      cover: "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
+      abstract: "本篇为ELK Stack生产实践系列专题第十八篇，本篇主要内容是介绍使用Fluent Bit采集pod日志方案，并总结Fluent Bit常用模块以及使用配置示例。并以自定义日志采集为例，演示如何通过sidecar方式采集、过滤、输出到ES中。",
     },
   {
     id:2,
     title: "test1",
+    cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+    abstract: "12122122",
   }
 ]
 
