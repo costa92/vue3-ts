@@ -1,10 +1,12 @@
 <template>
   <section class="article-item">
     <span class="item-cover">
-      <el-image :src="article.cover"
-                style="width: 270px; height: 180px"
-                :fit="'fill'"
-                lazy>
+      <el-image
+        :src="article.cover"
+        style="width: 270px; height: 180px"
+        :fit="'fill'"
+        lazy
+      >
 <!--        <template #placeholder>-->
 <!--          <Loading type="image"></Loading>-->
 <!--        </template>-->
@@ -34,23 +36,22 @@
 .article-item {
   display: flex;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 10px;
   .item-cover {
     width: 270px;
-    padding: 3px;
+    padding: 2px;
     display: inline-block;
     border: 1px solid var(--el-bg-color);
     border-radius: 8px;
   }
   .describe {
-    margin-left: 10px;
+    margin-left: 15px;
     h2 {
       color: var(--el-text-color-primary);
       margin: 0;
       line-height: 28px;
       display: flex;
-      padding-left: 5px;
+      padding-left: 2px;
     }
     p {
       margin: 15px 0;
@@ -61,6 +62,7 @@
       -webkit-line-clamp: 4;
       display: -webkit-box;
       -webkit-box-orient: vertical;
+      text-align: left;
     }
     .info {
       display: flex;
