@@ -104,7 +104,6 @@ body > .el-container {
 .el-main {
   color: #333;
   text-align: center;
-  line-height: 160px;
 }
 
 

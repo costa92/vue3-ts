@@ -1,8 +1,8 @@
 <template>
   <section class="article-item">
     <el-row :gutter="20">
-      <el-col :span="8">
-        <div class="grid-content ep-bg-purple" style="background-color: #9900ff">
+      <el-col :span="7">
+        <div class="grid-content-img">
           <el-image
             :src="article.cover"
             class="cover-img"
@@ -12,11 +12,16 @@
         </div>
       </el-col>
       <el-col :span="16">
-        <div class="grid-content ep-bg-purple describe" style="background-color: red">
+        <div class="describe">
           <h2>{{ article.title }}</h2>
           <p class="abstract">
             {{ article.abstract }}
           </p>
+          <div class="info">
+            <span>时间：2023-10-01</span>
+            <span>时间：2023-10-01</span>
+            <span>时间：2023-10-01</span>
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -37,12 +42,10 @@
 </script>
 <style scoped lang="scss">
 .article-item {
-  display: flex;
+  display: flow;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 10px;
 }
-
 .el-image{
   border-radius: 10px;
   width: 270px;
@@ -51,87 +54,40 @@
     width: 100%;
   }
 }
+.grid-content-img {
+  margin-top: 8px
+}
 .describe{
   text-align: left;
-  h2 {
-    line-height: 10px;
-    padding-top: 10px;
-    margin-top: 10px;
+  h2{
+    margin: 0;
   }
   p {
+    font-size: 18px;
     display: flex;
-    line-height: 18px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    height: 114px;
+  }
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--el-text-color-placeholder);
+    span {
+      margin: 0 5px 0 15px;
+    }
   }
 }
 
-//  .item-cover {
-//    width: 270px;
-//    padding: 3px;
-//    display: inline-block;
-//    border: 1px solid var(--el-bg-color);
-//    height: 180px;
-//    .el-image {
-//      border-radius: 10px;
-//    }
-//  }
-//  .describe {
-//    margin-left: 15px;
-//    h2 {
-//      color: var(--el-text-color-primary);
-//      margin: 0;
-//      line-height: 28px;
-//      display: flex;
-//      padding-left: 2px;
-//    }
-//    p {
-//      margin: 15px 0;
-//      color: var(--el-text-color-secondary);
-//      line-height: 28px;
-//      overflow: hidden;
-//      -webkit-line-clamp: 4;
-//      display: -webkit-box;
-//      -webkit-box-orient: vertical;
-//      text-align: left;
-//    }
-//    .info {
-//      display: flex;
-//      justify-content: center;
-//      align-items: center;
-//      color: var(--el-text-color-placeholder);
-//      span {
-//        margin: 0 5px 0 15px;
-//      }
-//    }
-//  }
-//}
-//
-//.el-divider--horizontal {
-//  margin: 5px 0 !important;
-//}
-//.no-choose {
-//  -webkit-user-select: none;
-//  -moz-user-select: none;
-//  -ms-user-select: none;
-//  user-select: none
-//}
-//
-//.article-item-hover,.article-title-hover,.article-abstract-hover,.article-tag-hover,.card-hover,.ranking-hover,.detail-active-hover,.detail-context-hover {
-//  transition: all .5s
-//}
-//
-//.article-item-hover:hover {
-//  box-shadow: 0 0 10px 5px #3037421a;
-//  transform: translateY(-5px);
-//  transition-delay: 0s!important
-//}
-//
-//.article-title-hover:hover {
-//  color: var(--el-color-primary)!important;
-//  cursor: pointer
-//}
-//
-//.article-abstract-hover:hover {
-//  color: var(--el-text-color-regular)!important;
-//  cursor: pointer
-//}
+.el-col {
+  border-radius: 4px;
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
 </style>

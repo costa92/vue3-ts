@@ -41,11 +41,9 @@
                       <span class="card-title">🆕 最新文章</span>
                     </div>
                   </template>
+                  <!-- 文章列表 -->
                   <ul>
-                    <li v-for="item in articles"
-                      :key="item.id"
-                    >
-                      <!-- 文章列表 -->
+                    <li v-for="item in articles" :key="item.id">
                       <ArticleItem :article="item" />
                     </li>
                   </ul>
@@ -123,7 +121,20 @@ const articles: ArticleList = [
           "并总结Fluent Bit常用模块以及使用配置示例。并以自定义日志采集为例，演示如何通过sidecar方式采集、过滤、输出到ES中。",
     },
   {
-    id:2,
+    id: 3,
+    title: "test",
+    cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+    abstract: "本篇为ELK Stack生产实践系列专题第十八篇，本篇主要内容是介绍使用Fluent Bit采集pod日志方案，" +
+        "并总结Fluent Bit常用模块以及使用配置示例。并以自定义日志采集为例，演示如何通过sidecar方式采集、过滤、输出到ES中。",
+  },
+  {
+    id: 2,
+    title: "test1",
+    cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+    abstract: "12122122",
+  },
+  {
+    id:4,
     title: "test1",
     cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
     abstract: "12122122",
@@ -141,13 +152,11 @@ defineExpose({
 <style lang="scss">
 .el-row {
   margin-bottom: 20px;
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 .el-col {
   border-radius: 10px;
 }
+
 .grid-content {
   border-radius: 4px;
   min-height: 36px;
@@ -161,6 +170,7 @@ defineExpose({
 .radius-10{
   border-radius: 10px
 }
+
 .indexBannerImg {
   height:100%;
   width:100%;
@@ -180,9 +190,6 @@ defineExpose({
   background-color: #d3dce6;
 }
 .el-carousel__indicators {
-  //left: unset;
-  //transform: unset;
-  //right: 2%;
   top: 75%;
   margin-bottom: 10px;
   position: absolute;
@@ -208,16 +215,19 @@ defineExpose({
   margin-top: 20px;
   background-color: #9900ff;
   border-radius: 10px;
+  .el-card__body{
+    padding: 0 !important;
+  }
   ul {
     list-style-type: none;
-    padding: 0;
     margin: 0;
     li {
       border-bottom: 1px solid var(--el-card-border-color);
+
     }
   }
 }
-.article  .card-header {
+.article .card-header {
   flex: 1 0 100px;
   display: flex;
   justify-content: space-between;
@@ -225,7 +235,7 @@ defineExpose({
   width: 100%;
   line-height: 20px;
 }
-.article  .el-card {
+.article .el-card {
   border-radius: var(--el-card-border-radius);
   border: 1px solid var(--el-card-border-color);
   background-color: var(--el-card-bg-color);
@@ -233,7 +243,7 @@ defineExpose({
   color: var(--el-text-color-primary);
   transition: var(--el-transition-duration);
 }
-.article  .card-title {
+.article .card-title {
   color: var(--el-color-primary);
   font-size: 23px;
 }
