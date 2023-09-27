@@ -62,6 +62,8 @@
   .describe{
     text-align: left;
     margin-left: 50px;
+    //width: calc(100% - 160px);
+    //margin-left: calc(100% - 160px);
     h2{
       margin: 0;
     }
