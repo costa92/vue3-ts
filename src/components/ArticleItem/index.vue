@@ -61,7 +61,8 @@
 @media screen and (max-width: 1490px){
   .describe{
     text-align: left;
-    margin-left: 50px;
+    //margin-left: 50px;
+    margin-left: calc((100% - 450px) / 2);
     //width: calc(100% - 160px);
     //margin-left: calc(100% - 160px);
     h2{
