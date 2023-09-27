@@ -11,7 +11,7 @@
           />
         </div>
       </el-col>
-      <el-col :span="16">
+      <el-col :span="17">
         <div class="describe">
           <h2>{{ article.title }}</h2>
           <p class="abstract">
@@ -57,6 +57,36 @@
 .grid-content-img {
   margin-top: 8px
 }
+
+@media screen and (max-width: 1490px){
+  .describe{
+    text-align: left;
+    margin-left: 50px;
+    h2{
+      margin: 0;
+    }
+    p {
+      font-size: 18px;
+      display: flex;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      height: 114px;
+    }
+  }
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--el-text-color-placeholder);
+    span {
+      margin: 0 5px 0 15px;
+    }
+  }
+}
+
+@media (max-width: 2000px) and (min-width: 1490px){
 .describe{
   text-align: left;
   h2{
@@ -71,6 +101,7 @@
     margin-inline-end: 0;
     height: 114px;
   }
+}
   .info {
     display: flex;
     justify-content: center;
