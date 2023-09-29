@@ -8,7 +8,8 @@
     <!--    header middle -->
     <el-col
       class="header-middle"
-      :span="16"
+      :span="12"
+      :offset="1"
     >
       <el-menu
         :default-active="activeIndex"

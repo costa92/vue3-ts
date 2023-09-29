@@ -1,7 +1,8 @@
-import { createRouter, createWebHashHistory,RouteRecordRaw,isNavigationFailure } from 'vue-router'
+import { createRouter, createWebHistory,RouteRecordRaw,isNavigationFailure } from 'vue-router'
 import home from '@/views/home/home.vue'
 import about from '@/views/about/about.vue'
 import article from '@/views/article/article.vue'
+import ArticleDetail from '@/views/article/article-detail.vue'
 import NProgress from "nprogress";
 import {route} from "@/hooks";
 import {i18nRouter} from "@/utils";
@@ -22,13 +23,19 @@ export const constantRouters: Array<RouteRecordRaw > = [
         path: '/article',
         component: article,
         meta:  { title: "about", icon: "about", isAffix: true, isTagView: true },
+    },
+    {
+        path: "/article/detail",
+        component: ArticleDetail,
+        meta:  { title: "detail", icon: "detail", isAffix: true, isTagView: true },
     }
 ];
 
 // 文档： https://router.vuejs.org/zh/guide/advanced/navigation-guards.html
 // 创建路由实例并传递 `routes` 配置
 const  router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
+    // history: createWebHashHistory(),
     routes: constantRouters,
 });
 
