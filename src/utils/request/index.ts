@@ -9,7 +9,7 @@ const service: AxiosInstance = axios.create({
 });
 
 //  请求
-service.interceptors.request.use((config: AxiosRequestConfig) => {
+service.interceptors.request.use((config: AxiosRequestConfig<any>) => {
     // 这里可以设置token: config!.headers!.Authorization = token
     return config;
 });
