@@ -92,6 +92,7 @@
 @media (max-width: 2000px) and (min-width: 1490px){
 .describe{
   text-align: left;
+  margin-left: 3px;
   h2{
     margin: 0;
   }

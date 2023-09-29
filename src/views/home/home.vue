@@ -75,71 +75,39 @@
 </template>
 
 <script lang="ts" name="home" setup>
-import { ref } from 'vue';
+import { ref,reactive } from 'vue';
 import ArticleItem from "@/components/ArticleItem/index.vue";
-interface Banner {
-  content: string,
-  id: number,
-  link: string,
-}
-
-interface BannerList {
-  [index: number]: Banner
-}
-
+import { getArticles,getBanners } from "@/api"
+import { ArticleData } from "@/api/articles/model.ts";
+import {Banner} from "@/api/banners/model.ts";
 const bannerHeight = ref(400);
-const homeBannerNewsList: BannerList= [
-  {
-    content:"https://oss.cuiliangblog.cn/carousel/2023_01_12_20_20_01_690-1673526001798.jpg",
-    id:1,
-    link:""
-  },
-  {
-    content:"https://oss.cuiliangblog.cn/carousel/2023_03_23_16_55_04_534-1679561704816.jpg",
-    id:2,
-    link:""
-  },
-]
-
-
-interface article {
-  id: number,
-  title: string,
-  cover: string,
-  abstract: string,
-}
-interface ArticleList {
-  [index:number]:article
-}
-
-const articles: ArticleList = [
-    {
-      id: 1,
-      title: "test",
-      cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-      abstract: "本篇为ELK Stack生产实践系列专题第十八篇，本篇主要内容是介绍使用Fluent Bit采集pod日志方案，" +
-          "并总结Fluent Bit常用模块以及使用配置示例。并以自定义日志采集为例，演示如何通过sidecar方式采集、过滤、输出到ES中。",
-    },
-  {
-    id: 3,
-    title: "test",
-    cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-    abstract: "本篇为ELK Stack生产实践系列专题第十八篇，本篇主要内容是介绍使用Fluent Bit采集pod日志方案，" +
-        "并总结Fluent Bit常用模块以及使用配置示例。并以自定义日志采集为例，演示如何通过sidecar方式采集、过滤、输出到ES中。",
-  },
-  {
-    id: 2,
-    title: "test1",
-    cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-    abstract: "12122122",
-  },
-  {
-    id:4,
-    title: "test1",
-    cover: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-    abstract: "12122122",
+onMounted(() => {
+  getArticleList();
+  getBannerList();
+})
+const articles:ArticleData[] = reactive<ArticleData[]>([]);
+const homeBannerNewsList: Banner[] = reactive<Banner[]>([])
+async function getArticleList() {
+  try {
+   let res =  await getArticles({});
+   let { items } = res
+    articles.length = 0;
+    articles.push(...items);
+  }catch (e) {
+    console.log(e)
   }
-]
+}
+
+async function getBannerList(){
+  try {
+    let res = await getBanners({})
+    let { items } = res
+    homeBannerNewsList.length = 0;
+    homeBannerNewsList.push(...items);
+  }catch (e) {
+    console.log(e)
+  }
+}
 
 defineExpose({
   bannerHeight,
