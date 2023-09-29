@@ -43,7 +43,10 @@
                   </template>
                   <!-- 文章列表 -->
                   <ul>
-                    <li v-for="item in articles" :key="item.id">
+                    <li
+                      v-for="item in articles"
+                      :key="item.id"
+                    >
                       <ArticleItem :article="item" />
                     </li>
                   </ul>

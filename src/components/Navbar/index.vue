@@ -35,9 +35,8 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-
+import { list } from "./data.ts"
 const router = useRouter();
-
 const props = defineProps({
     activeIndex: {
       type: String,
@@ -52,22 +51,6 @@ const handleSelect = (index: string) => {
     console.log(err)
   });
 };
-
-const list = [
-  {
-    name: "首页",
-    url: "/",
-  },
-  {
-    name: "文章",
-    url: "/article",
-  },
-  {
-    name: "关于",
-    url: "/about",
-  },
-
-];
 </script>
 
 <style scoped lang="scss">
@@ -80,7 +63,6 @@ const list = [
   margin: 0;
   padding-left: 0;
 }
-
 .header-middle {
   border-bottom: 0;
 }

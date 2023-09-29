@@ -8,19 +8,17 @@
         <el-main class="main">
           <router-view />
         </el-main>
-        <el-footer class="footer bg-purple">
-          Footer
-        </el-footer>
+        <Footer />
       </el-container>
     </div>
   </el-config-provider>
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-
 import ElementZhCn from "element-plus/dist/locale/zh-cn.mjs";
 import ElementEn from "element-plus/dist/locale/en.mjs";
 import Navbar from "@/components/Navbar/index.vue";
+import Footer from  "@/components/Footer/index.vue"
 import { settingsStore } from "@/store";
 import {useRouter} from "vue-router";
 const router = useRouter()
@@ -41,7 +39,6 @@ const locale = computed(() => {
       return ElementZhCn;
   }
 });
-
 </script>
 
 <style lang="scss">
@@ -56,8 +53,6 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-
 #app {
   display: block;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -68,7 +63,6 @@ body {
   padding-top: 0;
   overflow-x: hidden;
 }
-
 body > .el-container {
   height:100%;
   margin: 0;
@@ -79,13 +73,11 @@ body > .el-container {
   justify-content:space-between;
 
 }
-
 .el-header, .el-footer {
   color: #333;
   text-align: center;
   line-height: 60px;
 }
-
 .el-header {
   padding: 0;
 }
@@ -96,17 +88,10 @@ body > .el-container {
   z-index: 5;
   border-bottom: 1px solid var(--el-border-color);
 }
-.footer {
-  width: 100%;
-  align-items: center;
-}
-
 .el-main {
   color: #333;
   text-align: center;
 }
-
-
 .router-view {
   color: var(--el-text-color-primary);
   background-color: var(--el-background-color-base);
