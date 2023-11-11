@@ -16,7 +16,6 @@
       "@": ["src"],
       "@/*": ["src/*"]
     },
-    "types": ["element-plus/global"],
 
     /* Bundler mode */
     "moduleResolution": "node",

@@ -161,7 +161,8 @@ defineExpose({
   background-color: #d3dce6;
 }
 .el-carousel__indicators {
-  top: 75%;
+  //top: 75%;
+  top: 80%;
   margin-bottom: 10px;
   position: absolute;
 }

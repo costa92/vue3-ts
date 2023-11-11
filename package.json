@@ -1,11 +1,11 @@
 {
   "name": "my-vue",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "cross-env NODE_ENV=production vite build && esno ./build/script/postBuild.ts",
+    "build:test": "cross-env vite build --mode testing && esno ./build/script/postBuild.ts",
     "preview": "vite preview --port 8080 --mode prod",
     "lint": "eslint --ext .js --ext .ts --ext .vue src",
     "lint-fix": "eslint --ext .js --ext .ts --ext .vue src --fix",
@@ -30,13 +30,17 @@
     "vite-plugin-glob": "^0.3.2",
     "vue": "^3.3.4",
     "vue-i18n": "^9.3.0",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "picocolors": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@types/color": "^3.0.4",
     "@types/node": "^20.6.0",
+    "esno": "^0.14.1",
+    "dotenv": "^16.0.0",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
