@@ -5,7 +5,6 @@ import { pinia } from "@/store";
 import { i18n } from "@/i18n";
 import router from "@/router";
 import App from './App.vue'
-
 const app = createApp(App)
 app.use(pinia)
 // 该对象目前支持 size 与 zIndex 字段。

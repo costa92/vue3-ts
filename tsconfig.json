@@ -7,7 +7,7 @@
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
-    "lib": ["esnext", "DOM", "DOM.Iterable","scripthost"],
+    "lib": ["esnext", "DOM", "DOM.Iterable","scripthost","WebWorker"],
     "skipLibCheck": true,
     // 解析非相对模块名的基准目录
     "baseUrl": "./",

@@ -25,10 +25,14 @@ const router = useRouter()
 const settingsState = settingsStore();
 const language = computed(() => settingsState.config.language);
 const activeIndex =  computed( () => settingsState.config.active);
+const { VITE_BASE_API } = process.env
 // 监听路由变化
 watch(() => router, (newValue) => {
   console.log(newValue)
 });
+
+console.log(VITE_BASE_API)
+
 const locale = computed(() => {
   switch (language.value) {
     case "zh-cn":

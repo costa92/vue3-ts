@@ -3,7 +3,7 @@ NOW := $(shell date +'%Y%m%d%H%M%S')
 TAG := $(shell git describe --always --tags --abbrev=0 | tr -d "[\r\n]")
 COMMIT := $(shell git rev-parse --short HEAD| tr -d "[ \r\n\']")
 
-LOCAL_TAG := "local-"$(COMMIT)
+LOCAL_TAG := "local-"$(NOW)
 LATEST_TAG := "latest"
 
 TKE_HOST := costa92
@@ -18,13 +18,15 @@ Dockerfile:
 build/prod:
 	pnpm install
 	pnpm run build
-	docker build -q -t $(DOCKER_IMAGE_TKE_LOCAL):$(TAG) .
+	docker build -q -t $(DOCKER_IMAGE_TKE_LOCAL):$(TAG)  --platform linux/amd64 .
+	docker push $(DOCKER_IMAGE_TKE_LOCAL):$(TAG)
 
 .PHONY: build/test
 build/test: clean
 	pnpm install
 	pnpm run build:test
-	docker build -q -t $(DOCKER_IMAGE_TKE_LOCAL):$(LOCAL_TAG) .
+	docker build -q -t $(DOCKER_IMAGE_TKE_LOCAL):$(LOCAL_TAG) --platform linux/amd64 .
+	docker push $(DOCKER_IMAGE_TKE_LOCAL):$(LOCAL_TAG)
 
 .PHONY: clean
 clean:

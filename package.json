@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
+    "serve": "vite",
+    "dev": "vite --mode dev",
     "build": "cross-env NODE_ENV=production vite build && esno ./build/script/postBuild.ts",
     "build:test": "cross-env vite build --mode testing && esno ./build/script/postBuild.ts",
     "preview": "vite preview --port 8080 --mode prod",

@@ -1,9 +1,10 @@
 import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import axios from 'axios'
+const { VITE_BASE_API } = process.env
 
 
 const service: AxiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_BASE_API,
+    baseURL: VITE_BASE_API,
     timeout: 10 * 1000, // 请求超时时间
     headers: { "Content-Type": "application/json;charset=UTF-8" }
 });
