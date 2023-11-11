@@ -58,13 +58,10 @@
   margin-top: 8px
 }
 
-@media screen and (max-width: 1490px){
+@media only screen and (max-width: 1490px) {
   .describe{
     text-align: left;
-    //margin-left: 50px;
-    margin-left: calc((100% - 450px) / 2);
-    //width: calc(100% - 160px);
-    //margin-left: calc(100% - 160px);
+    margin-left: calc((100% - 400px) / 2);
     h2{
       margin: 0;
     }

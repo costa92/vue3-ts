@@ -30,10 +30,10 @@ build/test: clean
 
 .PHONY: clean
 clean:
-	rm -rf dist/
+	@rm -rf dist/
 
 lint:
 	pnpm lint
 
 local/test: build/test Dockerfile
-	docker run --name $(PROJECT_NAME) -p 80:80 -d   $(DOCKER_IMAGE_TKE_LOCAL):$(LOCAL_TAG)
+	@docker run --name $(PROJECT_NAME) -p 80:80 -d   $(DOCKER_IMAGE_TKE_LOCAL):$(LOCAL_TAG)
