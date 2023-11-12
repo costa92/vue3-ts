@@ -11,28 +11,7 @@
           <el-col>
             <div class="grid-content radius-10">
               <!--   banner start -->
-              <div
-                class="block indexBanner radius-10"
-                :height="{ bannerHeight } + 'px'"
-              >
-                <el-carousel
-                  id="el-carousel"
-                  class="radius-10"
-                  :height="bannerHeight + 'px'"
-                  :interval="2000"
-                >
-                  <el-carousel-item
-                    v-for="(item,index) in homeBannerNewsList"
-                    :key="index"
-                  >
-                    <img
-                      ref="bannerHeight"
-                      class="indexBannerImg"
-                      :src="item.content"
-                    >
-                  </el-carousel-item>
-                </el-carousel>
-              </div>
+              <HomeBanner />
               <!--    banner end -->
               <article class="article">
                 <el-card class="box-card">
@@ -50,12 +29,12 @@
                       <ArticleItem :article="item" />
                     </li>
                   </ul>
-                  <!--                  <p class="isLoading" v-if="loading" v-loading="loading"-->
-                  <!--                     element-loading-text="玩命加载中"-->
-                  <!--                     element-loading-background="#ffffff"></p>-->
-                  <!--                  <p v-if="!noMore && article.count">-->
-                  <!--                    <el-divider>我是有底线的</el-divider>-->
-                  <!--                  </p>-->
+                  <p class="isLoading" v-if="loading" v-loading="loading"
+                     element-loading-text="玩命加载中"
+                     element-loading-background="#ffffff"></p>
+                  <p v-if="!noMore && articles.total">
+                    <el-divider>我是有底线的</el-divider>
+                  </p>
                 </el-card>
               </article>
             </div>
@@ -82,41 +61,72 @@ import { ref,reactive } from 'vue';
 import ArticleItem from "@/components/ArticleItem/index.vue";
 import { getArticles,getBanners } from "@/api"
 import { ArticleData } from "@/api/articles/model.ts";
-import {Banner} from "@/api/banners/model.ts";
-const bannerHeight = ref(400);
-onMounted(() => {
-  getArticleList();
-  getBannerList();
-})
+import HomeBanner from "@/components/Banner/HomeBanner/index.vue"
+import {sleepBack, sleepTime} from "@/hooks"
+
+
 const articles:ArticleData[] = reactive<ArticleData[]>([]);
-const homeBannerNewsList: Banner[] = reactive<Banner[]>([])
-async function getArticleList() {
-  try {
-   let res =  await getArticles({});
-   let { items } = res
-    articles.length = 0;
+const articlesTotal = ref(0)
+const loading = ref(false)
+// 是否还有更多需要加载
+const noMore = computed(() => articles.length < articlesTotal.value);
+
+// 文章请求参数
+const article_params = {
+  page: 1,
+  size: 5,
+  ordering: '-created_time',
+}
+
+async function init (){
+  window.addEventListener("scroll", scrollHandle, false)
+  await loadArticle()
+}
+
+onMounted(() => {
+  init()
+})
+
+// 加载下一页
+ const  loadArticle = async () => {
+  console.log("加载下一页了")
+   sleepTime(1000)
+   await getArticles(article_params).then((response) => {
+    let { items,total } = response
     articles.push(...items);
-  }catch (e) {
-    console.log(e)
+    articlesTotal.value = total
+    loading.value = false;
+    article_params.page = article_params.page + 1
+  })
+}
+
+// 页面滚动事件
+const scrollHandle = () => {
+  const scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight
+  const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+  const clientHeight = document.documentElement.clientHeight
+  const distance = scrollHeight - scrollTop - clientHeight
+  if (distance <= 400 && noMore.value) {
+    if (!loading.value) {
+      loading.value = true;
+      sleepBack(3000,loadArticle())
+    }
   }
 }
 
-async function getBannerList(){
-  try {
-    let res = await getBanners({})
-    let { items } = res
-    homeBannerNewsList.length = 0;
-    homeBannerNewsList.push(...items);
-  }catch (e) {
-    console.log(e)
-  }
-}
+onUnmounted(() => {
+  // 组件卸载时，停止监听
+  window.removeEventListener("scroll", scrollHandle, false)
+})
+
+
+
 
 defineExpose({
-  bannerHeight,
-  homeBannerNewsList,
   articles,
   ArticleItem,
+  loading,
+  noMore,
 })
 
 </script>
@@ -141,48 +151,6 @@ defineExpose({
 .radius-10{
   border-radius: 10px
 }
-
-.indexBannerImg {
-  height:100%;
-  width:100%;
-}
-.el-carousel__item img {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.80;
-  line-height: 400px;
-  margin: 0;
-  border-radius: 10px
-}
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-.el-carousel__item:nth-child(2n+1) {
-  background-color: #d3dce6;
-}
-.el-carousel__indicators {
-  top: 90%;
-  margin-bottom: 10px;
-  position: absolute;
-}
-
-.el-carousel__button {
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-// 指示器激活按钮
-.is-active .el-carousel__button {
-  background: #3f8ec8;
-}
-.el-carousel el-carousel--horizontal {
-  border-radius: 10px
-}
-.el-carousel__container {
-  border-radius: 10px
-}
 .article {
   margin-top: 20px;
   background-color: #9900ff;
@@ -195,7 +163,6 @@ defineExpose({
     margin: 0;
     li {
       border-bottom: 1px solid var(--el-card-border-color);
-
     }
   }
 }

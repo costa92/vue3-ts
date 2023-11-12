@@ -19,8 +19,8 @@
           </p>
           <div class="info">
             <span>时间：2023-10-01</span>
-            <span>时间：2023-10-01</span>
-            <span>时间：2023-10-01</span>
+            <span>浏览数：11</span>
+            <span>分类：文章</span>
           </div>
         </div>
       </el-col>
@@ -105,7 +105,8 @@
 }
   .info {
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    padding-right: 10px;
     align-items: center;
     color: var(--el-text-color-placeholder);
     span {

@@ -6,13 +6,16 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { viteMockServe} from 'vite-plugin-mock'
 import GlobPlugin from 'vite-plugin-glob'
+import { createHtmlPlugin } from "vite-plugin-html";
+
+
 // https://vitejs.dev/config/
 export default defineConfig( ({command, mode }:ConfigEnv) => {
     console.log(command)
     // 获取环境变量
     const env = loadEnv(mode, process.cwd());
     console.log(env.VITE_USE_MOCK)
-    const plugins =  createPlugins(env.VITE_USE_MOCK)
+    const plugins =  createPlugins(env)
     return {
        define: {
            'process.env': env
@@ -60,10 +63,10 @@ export default defineConfig( ({command, mode }:ConfigEnv) => {
 })
 
 
-export function createPlugins(enableMock){
+export function createPlugins({ VITE_USE_MOCK, VITE_APP_NAME }){
     const vitePlugins: (PluginOption)[] = [vue()];
     vitePlugins.push(GlobPlugin({}))
-    if (enableMock === "true") {
+    if (VITE_USE_MOCK === "true") {
         vitePlugins.push(viteMockServe(
             {
                 mockPath: "./src/mock",
@@ -81,6 +84,15 @@ export function createPlugins(enableMock){
             resolvers: [ElementPlusResolver()],
         })
     )
+
+    vitePlugins.push(createHtmlPlugin({
+        inject: {
+            data: {
+                //将环境变量 VITE_APP_TITLE 赋值给 title 方便 html页面使用 title 获取系统标题
+                title: VITE_APP_NAME,
+            },
+        },
+    }),)
 
     vitePlugins.push( AutoImport({
         resolvers: [ElementPlusResolver()],
