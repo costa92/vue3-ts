@@ -8,6 +8,7 @@ interface ImportMetaEnv {
     readonly VITE_APP_NAME:string
     readonly VITE_BASE_UPLOAD_API: string
     readonly VITE_USE_MOCK: boolean
+    readonly VITE_LOGO: string
     // 更多环境变量...
 }
 

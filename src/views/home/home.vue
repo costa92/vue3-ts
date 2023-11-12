@@ -3,7 +3,8 @@
     <el-row :gutter="20">
       <!--  左边  start  -->
       <el-col
-        :span="16"
+        :span="15"
+        :xs="16"
         :offset="2"
         class="left"
       >

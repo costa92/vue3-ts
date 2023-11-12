@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Advertising: typeof import('./src/components/Aside/Advertising/index.vue')['default']
     ArticleItem: typeof import('./src/components/ArticleItem/index.vue')['default']
     Aside: typeof import('./src/components/Aside/index.vue')['default']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']

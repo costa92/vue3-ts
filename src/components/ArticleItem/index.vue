@@ -64,7 +64,7 @@
 @media only screen and (max-width: 1490px) {
   .describe{
     text-align: left;
-    margin-left: calc((100% - 540px) / 2);
+    margin-left: calc((100% - 480px) / 2);
     h2{
       margin: 0;
     }
@@ -81,8 +81,9 @@
   }
   .info {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
+    padding-right: 3px;
     color: var(--el-text-color-placeholder);
     span {
       margin: 0 5px 0 15px;

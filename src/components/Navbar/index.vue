@@ -4,7 +4,14 @@
     <el-col
       class="header-left"
       :span="4"
-    />
+    >
+      <el-image
+        style="width: 50px; height: 40px"
+        :src="blogLogo"
+        :fit="'fill'"/>
+      <span class="no-choose">{{ blogTitle }}</span>
+
+    </el-col>
     <!--    header middle -->
     <el-col
       class="header-middle"
@@ -37,6 +44,9 @@
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 import { list } from "./data.ts"
+const blogTitle = process.env.VITE_APP_NAME
+const blogLogo = process.env.VITE_LOGO
+
 const router = useRouter();
 const props = defineProps({
     activeIndex: {
@@ -64,6 +74,23 @@ const handleSelect = (index: string) => {
   margin: 0;
   padding-left: 0;
 }
+
+.header-left{
+  margin-left: 20px;
+  .el-image {
+    top: 10px;
+    border-radius: 8px;
+  }
+  img{
+    border-radius: 8px;
+    transition: all .8s;
+  }
+  span {
+    padding-left: 10px;
+    font-size: 22px
+  }
+}
+
 .header-middle {
   border-bottom: 0;
 }

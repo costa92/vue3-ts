@@ -72,6 +72,9 @@ function toDetail(id:number ){
         margin: 7px 0;
         line-height: 20px;
         font-size: 14px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
@@ -88,6 +91,8 @@ function toDetail(id:number ){
         margin: 7px 0;
         line-height: 20px;
         font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
