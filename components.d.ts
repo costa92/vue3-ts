@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ArticleItem: typeof import('./src/components/ArticleItem/index.vue')['default']
+    Aside: typeof import('./src/components/Aside/index.vue')['default']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElCard: typeof import('element-plus/es')['ElCard']
@@ -28,6 +29,7 @@ declare module 'vue' {
     Home: typeof import('./src/components/Banner/Home/index.vue')['default']
     HomeBanner: typeof import('./src/components/Banner/HomeBanner/index.vue')['default']
     Navbar: typeof import('./src/components/Navbar/index.vue')['default']
+    Recommend: typeof import('./src/components/Aside/Recommend/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

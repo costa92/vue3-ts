@@ -3,8 +3,8 @@
     <el-row :gutter="20">
       <!--  左边  start  -->
       <el-col
-        :span="14"
-        :offset="4"
+        :span="16"
+        :offset="2"
         class="left"
       >
         <el-row :gutter="20">
@@ -22,10 +22,7 @@
                   </template>
                   <!-- 文章列表 -->
                   <ul>
-                    <li
-                      v-for="item in articles"
-                      :key="item.id"
-                    >
+                    <li v-for="item in articles" :key="item.id">
                       <ArticleItem :article="item" />
                     </li>
                   </ul>
@@ -43,12 +40,9 @@
       </el-col>
       <!--  左边  end  -->
       <!--  右边  start-->
-      <el-col
-        :span="4"
-        class="right"
-      >
+      <el-col :span="2" :lg="5" :md="6" :xl="4" class="right">
         <div class="grid-content bg-purple">
-          11
+          <Aside />
         </div>
       </el-col>
       <!--  右边  end-->
@@ -62,6 +56,7 @@ import ArticleItem from "@/components/ArticleItem/index.vue";
 import { getArticles,getBanners } from "@/api"
 import { ArticleData } from "@/api/articles/model.ts";
 import HomeBanner from "@/components/Banner/HomeBanner/index.vue"
+import Aside from "@/components/Aside/index.vue"
 import {sleepBack, sleepTime} from "@/hooks"
 
 
@@ -90,7 +85,6 @@ onMounted(() => {
 // 加载下一页
  const  loadArticle = async () => {
   console.log("加载下一页了")
-   sleepTime(1000)
    await getArticles(article_params).then((response) => {
     let { items,total } = response
     articles.push(...items);
@@ -151,8 +145,8 @@ defineExpose({
 .radius-10{
   border-radius: 10px
 }
+
 .article {
-  margin-top: 20px;
   background-color: #9900ff;
   border-radius: 10px;
   .el-card__body{

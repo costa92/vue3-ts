@@ -64,7 +64,7 @@
 @media only screen and (max-width: 1490px) {
   .describe{
     text-align: left;
-    margin-left: calc((100% - 400px) / 2);
+    margin-left: calc((100% - 540px) / 2);
     h2{
       margin: 0;
     }
@@ -76,6 +76,7 @@
       margin-inline-start: 0;
       margin-inline-end: 0;
       height: 114px;
+      padding-right: 3px;
     }
   }
   .info {
@@ -92,7 +93,7 @@
 @media (max-width: 2000px) and (min-width: 1490px){
 .describe{
   text-align: left;
-  margin-left: 3px;
+  margin-left: -20px;
   h2{
     margin: 0;
   }
@@ -104,12 +105,13 @@
     margin-inline-start: 0;
     margin-inline-end: 0;
     height: 114px;
+    padding-right: 15px;
   }
 }
   .info {
     display: flex;
     justify-content: right;
-    padding-right: 10px;
+    padding-right: 20px;
     align-items: center;
     color: var(--el-text-color-placeholder);
     span {

@@ -5,6 +5,9 @@ export interface ArticleData {
     title: string,
     cover: string,
     abstract: string,
+    create_time: number,
+    viewing: number,
+    caterge
 }
 
 /**

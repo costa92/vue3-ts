@@ -1,22 +1,24 @@
 <template>
-  <div class="block indexBanner radius-10" :height="{ bannerHeight } + 'px'">
-    <el-carousel
-      id="el-carousel"
-      class="radius-10"
-      :height="bannerHeight + 'px'"
-      :interval="2000"
-    >
-      <el-carousel-item
-        v-for="(item,index) in homeBannerNewsList"
-        :key="index"
+  <div v-if="isData">
+    <div class="block indexBanner radius-10">
+      <el-carousel
+        id="el-carousel"
+        class="radius-10"
+        :height="bannerHeight + 'px'"
+        :interval="2000"
       >
-        <img
-          ref="bannerHeight"
-          class="indexBannerImg"
-          :src="item.content"
-          alt="banner_nae">
-      </el-carousel-item>
-    </el-carousel>
+        <el-carousel-item
+          v-for="(item,index) in homeBannerNewsList"
+          :key="index"
+        >
+          <img
+            ref="bannerHeight"
+            class="indexBannerImg"
+            :src="item.content"
+            alt="banner_nae">
+        </el-carousel-item>
+      </el-carousel>
+    </div>
   </div>
 </template>
 <script setup lang="ts" name="HomeBanner">
@@ -25,16 +27,23 @@ import { Banner } from "@/api/banners/model.ts";
 import {getBanners} from "@/api";
 import {reactive, ref} from "vue";
 const bannerHeight = ref(400);
-
+const isData = ref(false)
 const homeBannerNewsList: Banner[] = reactive<Banner[]>([])
 onMounted(() => {
+  console.log(isData.value )
   getBannerList()
+  console.log(isData.value )
 })
 
 async function getBannerList(){
   try {
     let res = await getBanners({})
     let { items } = res
+    console.log(items.length)
+    if (items.length > 0) {
+      console.log(222)
+      isData.value = true
+    }
     homeBannerNewsList.length = 0;
     homeBannerNewsList.push(...items);
   }catch (e) {
@@ -48,6 +57,9 @@ async function getBannerList(){
   border-radius: 10px
 }
 
+.indexBanner {
+  margin-bottom:  20px;
+}
 .indexBannerImg {
   height:100%;
   width:100%;
