@@ -18,9 +18,9 @@
             {{ article.abstract }}
           </p>
           <div class="info">
-            <span>时间：2023-10-01</span>
-            <span>浏览数：11</span>
-            <span>分类：文章</span>
+            <span>时间：{{ timeAgo(article.create_time * 1000) }}</span>
+            <span>浏览数： {{ article.viewing }}</span>
+            <span>分类：{{ article.category }}</span>
           </div>
         </div>
       </el-col>
@@ -28,6 +28,8 @@
   </section>
 </template>
 <script setup lang="ts">
+  import  timeFormat  from "@/utils/formatTime"
+  const {timeAgo} = timeFormat()
   const props = defineProps({
     // 参数
     article:{
@@ -38,6 +40,7 @@
   const article =  props.article
   defineExpose({
     article,
+    timeAgo,
   })
 </script>
 <style scoped lang="scss">
