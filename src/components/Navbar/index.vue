@@ -77,9 +77,10 @@ const handleSelect = (index: string) => {
 
 .header-left{
   margin-left: 20px;
+
   .el-image {
     top: 10px;
-    border-radius: 8px;
+    border-radius: 50%;
   }
   img{
     border-radius: 8px;

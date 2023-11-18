@@ -159,6 +159,9 @@ defineExpose({
     li {
       border-bottom: 1px solid var(--el-card-border-color);
     }
+    li:last-child {
+      margin: 0;
+    }
   }
 }
 .article .card-header {
