@@ -24,6 +24,7 @@
           </div>
         </div>
       </el-col>
+      <el-divider></el-divider>
     </el-row>
   </section>
 </template>
@@ -45,8 +46,9 @@
 </script>
 <style scoped lang="scss">
 .article-item {
-  display: flow;
+  display: flex;
   padding: 10px;
+  margin-bottom: 10px;
   border-radius: 10px;
 }
 .el-image{
@@ -128,5 +130,8 @@
 .grid-content {
   border-radius: 4px;
   min-height: 36px;
+}
+.el-divider--horizontal {
+  margin: 20px 0 !important;
 }
 </style>

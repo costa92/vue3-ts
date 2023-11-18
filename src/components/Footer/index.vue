@@ -17,7 +17,11 @@ footer {
   background-color: var(--el-bg-color-overlay);
   height: 70px;
   display: flex;
+  position: fixed;
   justify-content: center;
   align-items: center;
+  clear: both;
+  bottom: 0;
 }
+
 </style>

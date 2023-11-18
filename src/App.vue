@@ -69,19 +69,20 @@ body {
 }
 body > .el-container {
   height:100%;
-  margin: 0;
   width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content:space-between;
-
+  padding-bottom: var(--footer-height);
+  overflow-y: auto;
 }
 .el-header, .el-footer {
   color: #333;
   text-align: center;
   line-height: 60px;
 }
+
 .el-header {
   padding: 0;
 }

@@ -148,19 +148,29 @@ defineExpose({
 }
 
 .article {
-  background-color: #9900ff;
   border-radius: 10px;
+  border-bottom: 0px;
+  padding-bottom: 20px;
   .el-card__body{
     padding: 0 !important;
   }
   ul {
-    list-style-type: none;
+    border-bottom: 0px;
     margin: 0;
+    display: block;
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 2px;
     li {
-      border-bottom: 1px solid var(--el-card-border-color);
+      display: list-item;
+      text-align: -webkit-match-parent;
+      height: 240px;
+      justify-content:  space-between;
     }
     li:last-child {
-      margin: 0;
     }
   }
 }
