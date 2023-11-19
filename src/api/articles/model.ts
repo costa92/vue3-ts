@@ -7,7 +7,7 @@ export interface ArticleData {
     abstract: string,
     create_time: number,
     viewing: number,
-    caterge
+    caterge: string
 }
 
 /**
