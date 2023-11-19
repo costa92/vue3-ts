@@ -161,7 +161,7 @@ defineExpose({
     list-style-type: none;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    margin-inline-start: 0px;
+    margin-inline-start: 1em;
     margin-inline-end: 0px;
     padding-inline-start: 2px;
     li {

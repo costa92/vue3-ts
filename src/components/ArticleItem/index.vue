@@ -1,6 +1,6 @@
 <template>
   <section class="article-item">
-    <el-row :gutter="20">
+    <el-row :gutter="20" class="article-row">
       <el-col :span="7">
         <div class="grid-content-img">
           <el-image
@@ -50,6 +50,9 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+.article-row{
+  width: 100%;
 }
 .el-image{
   border-radius: 10px;
