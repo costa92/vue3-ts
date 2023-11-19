@@ -19,9 +19,8 @@ import {getAbout} from "@/api";
 const about = ref([])
 // 获取关于页数据
 async function aboutData() {
-  let result  = await getAbout()
-  console.log(result.items)
-  about.value.push(...result.items)
+  let result  = await getAbout({});
+  about.value.push(result.items)
 }
 
 onMounted(() => {
@@ -29,7 +28,7 @@ onMounted(() => {
 })
 onActivated(() => {
   console.log("执行onActivated")
-  store.commit('setMenuIndex', '6')
+  // store.commit('setMenuIndex', '6')
 })
 // 默认展开的数据
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

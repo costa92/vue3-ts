@@ -25,9 +25,9 @@ export const constantRouters: Array<RouteRecordRaw > = [
         meta:  { title: "about", icon: "about", isAffix: true, isTagView: true },
     },
     {
-        path: "/article/detail",
+        path: '/detail/article/:id(\\d*)',
         component: ArticleDetail,
-        meta:  { title: "detail", icon: "detail", isAffix: true, isTagView: true },
+        meta:  { title: "article_content", icon: "detail", isAffix: true, isTagView: true },
     }
 ];
 
@@ -57,11 +57,20 @@ router.beforeResolve((to, from, next) => {
 
 /* 全局后置钩子 */
 router.afterEach((to, from, failure) => {
+    console.log("afterEach to",to)
+    console.log("afterEach from",from)
     // save current Route to Store
     const settingsState = settingsStore();
-    settingsState.config.active = to.fullPath
-    settingsState.setConfig(settingsState.config)
+    const routers: string[] = ["/","/home","/about","/article"]
+    if (routers.includes(to.fullPath)) {
+        settingsState.config.active = to.fullPath
+        settingsState.setConfig(settingsState.config)
+    } else {
+        settingsState.config.active = "/article"
+        settingsState.setConfig(settingsState.config)
+    }
 
+    console.log(settingsState.config.active)
     route.value = to;
     if (isNavigationFailure(failure)) {
         NProgress.done();

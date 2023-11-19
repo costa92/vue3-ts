@@ -12,8 +12,8 @@
         </div>
       </el-col>
       <el-col :span="17">
-        <div class="describe">
-          <h2>{{ article.title }}</h2>
+        <div class="describe no-choose">
+          <h2 class="article-title-hover" @click="toDetail(article.id)">{{ article.title }}</h2>
           <p class="abstract">
             {{ article.abstract }}
           </p>
@@ -30,7 +30,9 @@
 </template>
 <script setup lang="ts">
   import  timeFormat  from "@/utils/formatTime"
+  import {useRouter} from "vue-router";
   const {timeAgo} = timeFormat()
+  const router = useRouter()
   const props = defineProps({
     // 参数
     article:{
@@ -38,6 +40,12 @@
       required: true,
     }
   })
+
+  // 跳转文章详情页
+  const toDetail = (detailID) => {
+    router.push({path: `/detail/article/${detailID}`})
+  }
+
   const article =  props.article
   defineExpose({
     article,
