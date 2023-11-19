@@ -54,11 +54,11 @@
 <script lang="ts" name="home" setup>
 import { ref,reactive } from 'vue';
 import ArticleItem from "@/components/ArticleItem/index.vue";
-import { getArticles,getBanners } from "@/api"
+import { getArticles } from "@/api"
 import { ArticleData } from "@/api/articles/model.ts";
 import HomeBanner from "@/components/Banner/HomeBanner/index.vue"
 import Aside from "@/components/Aside/index.vue"
-import {sleepBack, sleepTime} from "@/hooks"
+import {sleepBack} from "@/hooks"
 
 
 const articles:ArticleData[] = reactive<ArticleData[]>([]);
@@ -93,10 +93,11 @@ onMounted(() => {
     loading.value = false;
     article_params.page = article_params.page + 1
   })
+   return
 }
 
 // 页面滚动事件
-const scrollHandle = () => {
+const scrollHandle = async () => {
   const scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight
   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
   const clientHeight = document.documentElement.clientHeight
@@ -104,7 +105,7 @@ const scrollHandle = () => {
   if (distance <= 400 && noMore.value) {
     if (!loading.value) {
       loading.value = true;
-      sleepBack(3000,loadArticle())
+      sleepBack(3000,  loadArticle())
     }
   }
 }
@@ -137,9 +138,7 @@ defineExpose({
   border-radius: 4px;
   min-height: 36px;
 }
-.bg-purple {
-  background: #d3dce6;
-}
+
 .left .right{
   border-radius: 10px
 }

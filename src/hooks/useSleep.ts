@@ -7,10 +7,10 @@ async function sleepTime(timeout = 300){
 }
 
 
-async function sleepBack(timeout: number, callback:()=>void) {
+async function sleepBack(timeout: number,  callback:()=>void) {
     return new Promise(resolve => {
-        setTimeout(()=>{
-            resolve(callback);
+        setTimeout(async () => {
+            await resolve(callback);
         },timeout)
     })
 }

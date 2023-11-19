@@ -33,6 +33,8 @@ declare module 'vue' {
     Recommend: typeof import('./src/components/Aside/Recommend/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TagCloud: typeof import('./src/components/Aside/Tags/TagCloud.vue')['default']
+    Tags: typeof import('./src/components/Aside/Tags/index.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

@@ -12,6 +12,7 @@
 </script>
 <style scoped lang="scss">
 footer {
+  z-index: 999;
   border-top: 1px solid var(--el-border-color);
   width: 100%;
   background-color: var(--el-bg-color-overlay);
