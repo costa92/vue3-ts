@@ -4,13 +4,15 @@
     <el-col
       class="header-left"
       :span="4"
+
     >
       <el-image
         style="width: 50px; height: 40px"
         :src="blogLogo"
-        :fit="'fill'"/>
-      <span class="no-choose">{{ blogTitle }}</span>
-
+        :fit="'fill'"
+        @click="router.push('/')"
+      />
+      <span class="no-choose" @click="router.push('/')">{{ blogTitle }}</span>
     </el-col>
     <!--    header middle -->
     <el-col

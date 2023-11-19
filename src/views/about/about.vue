@@ -20,7 +20,7 @@ const about = ref([])
 // 获取关于页数据
 async function aboutData() {
   let result  = await getAbout({});
-  about.value.push(result.items)
+  about.value.push(...result.items)
 }
 
 onMounted(() => {
